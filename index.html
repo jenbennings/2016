@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2016</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script type="text/javascript">
+    function blink() {
+      var blinks = document.getElementsByTagName('blink');
+      for (var i = blinks.length - 1; i >= 0; i--) {
+        var s = blinks[i];
+        s.style.visibility = (s.style.visibility === 'visible') ? 'hidden' : 'visible';
+      }
+      window.setTimeout(blink, 200);
+    }
+    if (document.addEventListener) document.addEventListener("DOMContentLoaded", blink, false);
+    else if (window.addEventListener) window.addEventListener("load", blink, false);
+    else if (window.attachEvent) window.attachEvent("onload", blink);
+    else window.onload = blink;
+
+  </script>
+
+  <blink>
+    <h1><span id="countdown"></span></h1>
+  </blink>
+
+  <script type="text/javascript">
+
+  // set the date we're counting down to
+  var target_date = new Date("Jan 1, 2016").getTime();
+
+  // variables for time units
+  var days, hours, minutes, seconds;
+
+  // get tag element
+  var countdown = document.getElementById("countdown");
+
+  // update the tag with id "countdown" every 1 second
+  setInterval(function () {
+
+      // find the amount of "seconds" between now and target
+      var current_date = new Date().getTime();
+      var seconds_left = (target_date - current_date) / 1000;
+
+      // do some time calculations
+      days = parseInt(seconds_left / 86400);
+      seconds_left = seconds_left % 86400;
+
+      hours = parseInt(seconds_left / 3600);
+      seconds_left = seconds_left % 3600;
+
+      minutes = parseInt(seconds_left / 60);
+      seconds = parseInt(seconds_left % 60);
+
+      // format countdown string + set tag value
+      countdown.innerHTML = days + "d, " + hours + "h, "
+      + minutes + "m, " + seconds + "s";
+
+  }, 1000);
+
+  </script>
+
+  <audio controls autoplay loop>
+    <source src="2016_Ghana_Movie.ogg" type="audio/ogg">
+    <source src="2016_Ghana_Movie.mp3" type="audio/mpeg">
+  </audio>
+</body>
+</html>
