@@ -20,7 +20,7 @@
     <script type="text/javascript">
       $(function(){
         var twentySissteen = document.getElementById("2016");
-        $('#play').mousedown(function(){
+        $('#play').on('mousedown', function(){
           twentySissteen.currentTime = 0;
           twentySissteen.play();
         });
