@@ -11,74 +11,21 @@
       <source src="2016.mp3" preload type="audio/mp3" />
     </audio>
 
-    <blink>
-      <h1><span id="countdown"></span></h1>
-      <h1><span id="countdown2"></span></h1>
-    </blink>
-
     <div class="button-frame plastic" id="play">
       <div class="the-button plastic"></div>
     </div>
 
     <script type="text/javascript">
-    // set the date we're counting down to
-    var target_date = new Date("Jan 1, 2016").getTime();
+      $(function(){
+        var twentySissteen = document.getElementById("2016");
+        $('#play').mousedown(function(){
+          twentySissteen.currentTime = 0;
+          twentySissteen.play();
+        });
 
-    // variables for time units
-    var days, hours, minutes, seconds;
-
-    // get tag element
-    var countdown = document.getElementById("countdown");
-
-    // update the tag with id "countdown" every 1 second
-    setInterval(function () {
-
-        // find the amount of "seconds" between now and target
-        var current_date = new Date().getTime();
-        var seconds_left = (target_date - current_date) / 1000;
-
-        // do some time calculations
-        days = parseInt(seconds_left / 86400);
-        seconds_left = seconds_left % 86400;
-
-        hours = parseInt(seconds_left / 3600);
-        seconds_left = seconds_left % 3600;
-
-        minutes = parseInt(seconds_left / 60);
-        seconds = parseInt(seconds_left % 60);
-
-        // format countdown string + set tag value
-        countdown.innerHTML = days + "d, " + hours + "h, "
-        + minutes + "m, " + seconds + "s";
-
-    }, 1000);
-
-    function blink() {
-      var blinks = document.getElementsByTagName('blink');
-      for (var i = blinks.length - 1; i >= 0; i--) {
-        var s = blinks[i];
-        s.style.visibility = (s.style.visibility === 'visible') ? 'hidden' : 'visible';
-      }
-      window.setTimeout(blink, 200);
-    }
-    if (document.addEventListener) document.addEventListener("DOMContentLoaded", blink, false);
-    else if (window.addEventListener) window.addEventListener("load", blink, false);
-    else if (window.attachEvent) window.attachEvent("onload", blink);
-    else window.onload = blink;
-
-    $(function(){
-      var twentySissteen = document.getElementById("2016");
-      $('#play').mousedown(function(){
-        twentySissteen.currentTime = 0;
-        twentySissteen.play();
-        $(this).addClass('animate');
-        $("#countdown").removeClass('hidden');
+        $("#2016").bind('ended', function(){
+        });
       });
-
-      $("#2016").bind('ended', function(){
-      });
-    });
-
     </script>
   </body>
 </html>

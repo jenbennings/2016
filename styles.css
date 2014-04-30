@@ -5,6 +5,29 @@ html {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  height: 100%;
+}
+
+body {
+   display: -webkit-box;   /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
+   display: -moz-box;      /* OLD: Firefox (buggy) */
+   display: -ms-flexbox;   /* MID: IE 10 */
+   display: -webkit-flex;  /* NEW, Chrome 21–28, Safari 6.1+ */
+   display: flex;          /* NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+ */
+
+   -webkit-box-align: center; -moz-box-align: center; /* OLD… */
+   -ms-flex-align: center; /* You know the drill now… */
+   -webkit-align-items: center;
+   align-items: center;
+
+   -webkit-box-pack: center; -moz-box-pack: center;
+   -ms-flex-pack: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+
+   margin: 0;
+   height: 100%;
+   width: 100%; /* needed for Firefox */
 }
 
 audio {
@@ -14,10 +37,7 @@ audio {
 h1 {
   font-size: 64px;
   color: white;
-
- background: -webkit-linear-gradient(#eee, #dc1e04);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-shadow: 8px 8px 0px black;
 }
 
 .the-button {
@@ -84,42 +104,14 @@ h1 {
 }
 
 .button-frame {
-  top: 50%;
-
-  position: relative;
-  z-index: 20;
-
-  margin: -3.4em auto 0 auto;
-
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
 
   width: 6.8em;
   height: 6.8em;
-
   padding: .55em;
-  -webkit-box-shadow: 0 0 8em rgba(189,246,163,.75)
-    0 0 8em rgba(189,246,163,.75),
-    0 0 .25em rgba(0,0,0,.9),
-    inset 0 .25em .125em rgba(255,255,255,.3),
-    inset 0 -.25em .125em rgba(0,0,0,.3);
-
-  -moz-box-shadow: 0 0 8em rgba(189,246,163,.75),
-    0 0 8em rgba(189,246,163,.75),
-    0 0 .25em rgba(0,0,0,.9),
-    inset 0 .25em .125em rgba(255,255,255,.3),
-    inset 0 -.25em .125em rgba(0,0,0,.3);
-
-  box-shadow: 0 0 8em rgba(189,246,163,.75),
-    0 0 8em rgba(189,246,163,.75),
-    0 0 .25em rgba(0,0,0,.9),
-    inset 0 .25em .125em rgba(255,255,255,.3),
-    inset 0 -.25em .125em rgba(0,0,0,.3);
-
-
   background: #cc0000;
-
   display: block;
 }
 
@@ -132,5 +124,3 @@ h1 {
   background: -ms-linear-gradient(top,  #b01e1e 0%,#920f0f 100%); /* IE10+ */
   background: linear-gradient(to bottom,  #b01e1e 0%,#920f0f 100%); /* W3C */
 }
-
-
